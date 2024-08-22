@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { CategoriaService } from 'src/app/services/categoria.service';
 import { Categoria } from 'src/app/models/categoria';
-import { AlertController } from '@ionic/angular'; 
+import { AlertController } from '@ionic/angular';
 import { environment } from 'src/environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
@@ -24,6 +24,10 @@ export class CategoriaComponent implements OnInit {
 
   ngOnInit(): void {
     this.obtenerCategoria();
+  }
+
+  actualizarCambios() {
+    this.obtenerCategoria();  // Volver a cargar las categorías
   }
 
 
@@ -57,13 +61,13 @@ export class CategoriaComponent implements OnInit {
 
     await alert.present();
   }
-  
+
   goBack() {
     window.history.back();
   }
 
   navigateToPage1() {
-    this.router.navigate(['/home']); // 
+    this.router.navigate(['/home']); //
   }
 
   navigateToPage3() {
@@ -73,7 +77,7 @@ export class CategoriaComponent implements OnInit {
   navigateToPage4() {
     this.router.navigate(['/productoNuevo']); //
   }
-  
+
   navigateToPage5() {
     this.router.navigate(['/event']); //
   }

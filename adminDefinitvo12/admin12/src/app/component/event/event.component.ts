@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AlertController } from '@ionic/angular'; 
+import { AlertController } from '@ionic/angular';
 import { EventoService } from 'src/app/services/evento.service'; // Importa el servicio
 import { environment } from 'src/environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -12,7 +12,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class EventComponent implements OnInit {
   listEvent: any[]=[];
 
-  eventos: any[]= []; 
+  eventos: any[]= [];
 
        apiUrl: string = environment.apiUrl;
 
@@ -31,6 +31,11 @@ export class EventComponent implements OnInit {
   //     this.listEvent = data;
   //   })
   // }
+
+    actualizarCambios() {
+    this.obtenerEvento();  // Volver a cargar las categorías
+  }
+
 
   obtenerEvento() {
     this.http.get<any[]>(`${environment.apiUrl}/evento`).subscribe({
@@ -60,14 +65,14 @@ export class EventComponent implements OnInit {
 
     await alert.present();
   }
-  
+
 
   goBack() {
     window.history.back();
   }
 
   navigateToPage1() {
-    this.router.navigate(['/home']); // 
+    this.router.navigate(['/home']); //
   }
 
   navigateToPage3() {
@@ -77,7 +82,7 @@ export class EventComponent implements OnInit {
   navigateToPage4() {
     this.router.navigate(['/productoNuevo']); //
   }
-  
+
   navigateToPage5() {
     this.router.navigate(['/qSomo']); //
   }

@@ -32,6 +32,10 @@ export class SomoComponent implements OnInit {
     });
   }
 
+   actualizarCambios() {
+    this.obtenerSomos();  
+  }
+
   eliminarSomos(id: string) {
     this.somosService.eliminarSomos(id).subscribe(() => {
       this.mostrarAlerta()

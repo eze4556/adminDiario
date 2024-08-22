@@ -28,13 +28,20 @@
     <h2>Lista de Categorias</h2>
     <!-- Enlace a Bootstrap desde un CDN -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<div>
+      <!-- Botón para actualizar cambios -->
+      <button class="btn btn-info mb-3" (click)="actualizarCambios()">Actualizar Cambios</button>
+    </div>
+
+
     <table class="table">
       <thead>
         <tr>
           <th scope="col">ID</th>
           <th scope="col">Nombre</th>
           <th scope="col">Imagen</th>
-          
+
           <th scope="col"><button  class="btn btn-primary"  (click)="navigateToPage8()">Agregar</button></th>
         </tr>
       </thead>
@@ -43,7 +50,7 @@
           <th scope="row">{{ i + 1 }}</th>
           <td>{{ categoria.nombre }}</td>
           <!-- <td>{{ categoria.imagen }}</td> -->
-    
+
      <td>
             <img
               [src]="categoria.imagen"
@@ -52,7 +59,7 @@
             />
           </td>
 
-          
+
           <td>
             <!-- <button class="btn btn-warning"   [routerLink]="['/editar-categoria', categoria._id]">Editar</button> -->
             <button class="btn btn-danger" (click)="eliminarCategoria(categoria._id)">Eliminar</button>
